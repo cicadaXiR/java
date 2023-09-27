@@ -94,9 +94,18 @@ public class HashTableDemo {
         DataItem item = hashTable.search(37);
 
         if(item != null){
-            System.out.println("Element found" + item.getData());
+            System.out.println("Element Found" + item.getData());
         }else{
-            System.out.println("Element not found ");
+            System.out.println("Element Not Found ");
+        }
+
+        hashTable.delete(item);
+        item = hashTable.search(37);
+
+        if(item != null){
+            System.out.println("Element Found:"+item.getData());
+        }else{
+            System.out.println("Element Not Found");
         }
     }
 }
