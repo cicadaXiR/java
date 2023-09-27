@@ -1,7 +1,5 @@
 package com.datastructureAndalgorithms;
 
-import javax.xml.crypto.Data;
-
 class DataItem{
     private int data;
     private int key;
