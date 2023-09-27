@@ -24,7 +24,7 @@ class Btree{
                 if(current.data > data){
                     current = current.leftNode;
                 }else{
-                    current = current.rightNode
+                    current = current.rightNode;
                 }
                 if(current == null){
                     return null;
