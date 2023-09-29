@@ -74,6 +74,45 @@ class MyQueue{
         return item;
     }
 }
+class Vertex{
+    public char label;
+    public boolean visited;
+    public Vertex(char label){
+        this.label = label;
+        visited = false;
+    }
+}
+class Graph{
+    private final int Max = 20;
+    private Vertex lstArray[];
+    private int adjArray[][];
+    private int vertexCount;
+    private MyStack stack;
+    private MyQueue queue;
+
+    public Graph(){
+        lstArray = new Vertex[Max];
+        adjArray = new int[Max][Max];
+        vertexCount = 0;
+        stack = new MyStack(Max);
+        queue = new MyQueue(Max);
+        for(int i=0; i<Max;i++){
+            for (int j=0; j<Max; j++){
+                adjArray[i][j] = 0;
+            }
+        }
+    }
+    public void addVertex(char label){
+        lstArray[vertexCount++] = new Vertex(label);
+    }
+    public void addEdges(int start, int end){
+        adjArray[start][end] = 1;
+        adjArray[end][start] = 1;
+    }
+    public void displayVertex(int vertexIndex){
+        System.out.println(lstArray[vertexIndex].label+" ");
+    }
+}
 public class GraphDemo {
     public static void main(String[] args) {
 
