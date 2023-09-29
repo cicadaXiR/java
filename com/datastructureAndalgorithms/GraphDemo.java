@@ -120,9 +120,67 @@ class Graph{
         }
         return -1;
     }
+    public void depthSearchFirst(){
+        lstArray[0].visited = true;
+        displayVertex(0);
+        stack.push(0);
+
+        while(!stack.isEmpty()){
+            int unvisitedVertex = getAdjUnVisitedVertex(stack.peek());
+            if(unvisitedVertex == -1){
+                stack.pop();
+            }else{
+                lstArray[unvisitedVertex].visited = true;
+                displayVertex(unvisitedVertex);
+                stack.push(unvisitedVertex);
+            }
+            for(int i=0; i<vertexCount; i++){
+                lstArray[i].visited = false;
+            }
+        }
+    }
+    public void breadthFirstSearch(){
+        lstArray[0].visited = true;
+        displayVertex(0);
+        queue.insert(0);
+
+        int unvisitedVertex;
+        while(!queue.isEmpty()){
+            int tempVertex = queue.remove();
+            while((unvisitedVertex = getAdjUnVisitedVertex(tempVertex)) != -1){
+                lstArray[unvisitedVertex].visited = true;
+                displayVertex(unvisitedVertex);
+                queue.insert(unvisitedVertex);
+            }
+            for(int i=0; i<vertexCount;i++){
+                lstArray[i].visited = false;
+            }
+        }
+    }
 }
 public class GraphDemo {
     public static void main(String[] args) {
+        Graph graph = new Graph();
 
+        graph.addVertex('A');
+        graph.addVertex('B');
+        graph.addVertex('C');
+        graph.addVertex('D');
+        graph.addVertex('E');
+        graph.addVertex('F');
+        graph.addVertex('G');
+
+        graph.addEdges(0,1);
+        graph.addEdges(1,2);
+        graph.addEdges(2,3);
+        graph.addEdges(0,4);
+        graph.addEdges(0,5);
+        graph.addEdges(5,6);
+
+        System.out.print("Depth First Search :");
+        graph.breadthFirstSearch();
+        System.out.println(" ");
+        System.out.print("Breadth First Search :");
+        graph.breadthFirstSearch();
     }
 }
