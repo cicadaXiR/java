@@ -179,7 +179,7 @@ public class GraphDemo {
 
         System.out.print("Depth First Search :");
         graph.breadthFirstSearch();
-        System.out.println(" ");
+        System.out.println("");
         System.out.print("Breadth First Search :");
         graph.breadthFirstSearch();
     }
