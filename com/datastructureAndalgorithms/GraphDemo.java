@@ -112,6 +112,14 @@ class Graph{
     public void displayVertex(int vertexIndex){
         System.out.println(lstArray[vertexIndex].label+" ");
     }
+    public int getAdjUnVisitedVertex(int vertexIndex) {
+        for (int i = 0; i < vertexCount; i++) {
+            if (adjArray[vertexIndex][i] == 1 && lstArray[i].visited == false) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
 public class GraphDemo {
     public static void main(String[] args) {
